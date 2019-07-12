@@ -47,7 +47,7 @@ class MemoryApp extends React.Component {
     cards = shuffle(cards);
     this.setState({cards})
   }
-  
+
   handleClick(id) {
     const mapCardState = (cards, idsToChange, newCardState) => {
       return cards.map(c => {
@@ -63,7 +63,7 @@ class MemoryApp extends React.Component {
 
     const foundCard = this.state.cards.find(c => c.id === id);
 
-    if (this.state.noClick || foundCard.CardState !== CardState.HIDING) {
+    if (this.state.noClick || foundCard.cardState !== CardState.HIDING) {
       return;
     }
 
@@ -71,7 +71,7 @@ class MemoryApp extends React.Component {
 
     let cards = mapCardState(this.state.cards, [id], CardState.SHOWING);
 
-    const showingCards = cards.filter(c => c,CardState === CardState.SHOWING);
+    const showingCards = cards.filter(c => c.cardState === CardState.SHOWING);
 
     const ids = showingCards.map(c => c.id);
 
